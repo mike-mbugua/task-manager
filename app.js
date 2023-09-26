@@ -14,12 +14,11 @@ app.use("/api/v1/tasks", tasks);
 
 const start = async () => {
   try {
-    await connectDB();
+    await connectDB(process.env.MONGO_URI);
     console.log(`Server running on port : ${port}`);
   } catch (error) {
     console.log(error);
   }
 };
-// app.listen(port, () => {});
 
 start();
